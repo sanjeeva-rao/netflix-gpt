@@ -1,10 +1,9 @@
-import './App.css';
+import Body from "./components/Body";
+
 
 function App() {
   return (
-    <div className="">
-      <h1 className='font-bold bg-red-300'>Namste React, Nextflix GPT!</h1>
-    </div>
+    <Body/>
   );
 }
 
