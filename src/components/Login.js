@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useRef } from "react";
 import { validation } from "../utils/validation";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
 const Login = () => {
     const [isSignIn, setIsSignIn] = useState(true);
     const [waringValidation, setWarningValidation] = useState(null);
@@ -11,6 +13,42 @@ const Login = () => {
     const ClickSignInSignUp = () => {
         const error = validation(email.current.value, password.current.value, isSignIn ? undefined : name.current.value);
         setWarningValidation(error);
+
+        if(error) return;
+
+        if(!isSignIn) {
+            createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+              .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log(user);
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                
+                setWarningValidation(errorMessage);
+                
+              });
+        }
+
+        else{
+            // SIGN IN
+            signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+                
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setWarningValidation(errorMessage);
+            });
+        }
     }
 
     return <div className="min-w-full h-full">
