@@ -3,9 +3,11 @@ import { useRef } from "react";
 import { validation } from "../utils/validation";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/userSlice";
+import Top from "./Top";
+import { logo } from "../utils/constants";
+import { backgroundImg } from "../utils/constants";
 
 const Login = () => {
     const [isSignIn, setIsSignIn] = useState(true);
@@ -13,7 +15,6 @@ const Login = () => {
     const email = useRef(null);
     const password = useRef(null);
     const name = useRef(null)
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const ClickSignInSignUp = () => {
@@ -38,8 +39,6 @@ const Login = () => {
                     // An error occurred
                     // ...
                   });
-              }).then(()=>{
-                    navigate("/browser")
               })
               .catch((error) => {
                 const errorCode = error.code;
@@ -59,8 +58,6 @@ const Login = () => {
                 const user = userCredential.user;
                 console.log(user);
                 // ...
-            }).then(()=>{
-                navigate("/browser")
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -71,10 +68,11 @@ const Login = () => {
     }
 
     return <div className="min-w-full h-full">
+        <Top/>
         <div className="z-40 absolute bg-gradient-to-b from-black w-full">
-            <img className="mx-10 my-2 h-[150px] w-[150px]" src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" alt="logo"/>
+            <img className="mx-10 my-2 h-[150px] w-[150px]" src={logo} alt="logo"/>
         </div>
-        <img className="absolute" src="https://assets.nflxext.com/ffe/siteui/vlv3/bfc0fc46-24f6-4d70-85b3-7799315c01dd/web/IN-en-20240923-TRIFECTA-perspective_74e21c19-980e-45ef-bd6c-78c1a6ce9381_small.jpg" alt="back-ground" />
+        <img className="absolute" src={backgroundImg} alt="back-ground" />
         <div className="bg-black w-4/12 relative mx-auto top-24 opacity-80">
             <form onSubmit={(e)=>e.preventDefault()} className="text-white " >
                 <p className="my-4 font-bold text-2xl mx-8">{isSignIn ? "Sign In": "Sign Up"}</p>
