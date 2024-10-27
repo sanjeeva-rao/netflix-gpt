@@ -1,13 +1,17 @@
 import Header from "./Header";
 import Top from "./Top";
-import useNowPlayingMovies from "../hooks/useNowPlayingMovies"
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import Primary from "./Primary";
+import Secondary from "./Secondary";
 
 const Browser = () => {
     useNowPlayingMovies();
 
     return <div>
         <Top/>
-        <Header />
+        <Header/>
+        <Primary/>
+        <Secondary/>
     </div>
 }
 

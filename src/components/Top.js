@@ -13,7 +13,6 @@ const Top = () => {
             if (user) {
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/auth.user
-              console.log(user, "user");
               dispatch(addUser({email: user.email, displayName: user.displayName}))
               navigate("/browser")
               // ...
