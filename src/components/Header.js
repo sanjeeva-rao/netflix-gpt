@@ -18,7 +18,7 @@ const Header = () => {
         });
     }
     return (
-        <div className="bg-gradient-to-b from-black flex justify-between">
+        <div className="flex justify-between -mb-32 relative z-50">
            <img className="h-[100px] w-[100px]" src={logo} alt="logo"/>
            <div className="flex justify-between">
                 <p className="text-xl text-red-500 p-8">{userName}</p>

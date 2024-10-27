@@ -67,7 +67,7 @@ const Login = () => {
         }
     }
 
-    return <div className="min-w-full h-full">
+    return <div className="min-w-full h-full -mt-4">
         <Top/>
         <div className="z-40 absolute bg-gradient-to-b from-black w-full">
             <img className="mx-10 my-2 h-[150px] w-[150px]" src={logo} alt="logo"/>

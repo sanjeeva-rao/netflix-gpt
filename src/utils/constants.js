@@ -7,3 +7,5 @@ export const tmdb_options = {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTg4YThiZDhiMDBkYzNmNGUyODBkZWE2OWQzNjZmYSIsIm5iZiI6MTcyOTUyNTI5MS42MTU2NzksInN1YiI6IjY3MTNkZWIyNjUwMjQ4YjlkYjYyMjk1NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.t-nH9GsNcGa6jYRptBqp0tDhF3v_WvO5SeUyz_e5Fd0'
     }
   };
+
+export const movie_image_url = "https://image.tmdb.org/t/p/w400/";  

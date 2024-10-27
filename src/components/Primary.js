@@ -8,7 +8,7 @@ const Primary = () => {
     const mainMovie = movies[0];
     const {original_title, overview, id} = mainMovie;
     
-    return <div>
+    return <div className="pt-6">
         <VideoTitle title={original_title} overview = {overview} />
         <VideoBackground movie_id={id}/>
     </div>
